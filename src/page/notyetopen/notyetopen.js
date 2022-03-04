@@ -1,8 +1,14 @@
 import React from "react";
 import "./notyetopen.css";
 import { Button, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
   return (
     <div>
       <div className="Notyetopen">
@@ -14,7 +20,9 @@ function App() {
           </p>
           <div class="button">
             <Stack direction="row" spacing={2}>
-              <Button variant="contained" style={{ width: 380, height: 36 }}>
+              <Button variant="contained" style={{ width: 380, height: 36 }} 
+              onClick={handleClick}
+              >
                 完成
               </Button>
             </Stack>

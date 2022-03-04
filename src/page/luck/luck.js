@@ -1,5 +1,7 @@
 import React from "react";
 import "./luck.css";
+import axios from "../../axios.config";
+import { useNavigate } from "react-router-dom";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import {
   Dialog,
@@ -23,6 +25,7 @@ import {
 const ChipListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
+
 
 const CssTextField = styled(TextField)({
   "& .MuiFormHelperText-root": {
@@ -52,16 +55,21 @@ function App() {
   const [Dialogopen, setDialogOpen] = React.useState(false);
   const [checkBoxCheck, setCheckBoxCheck] = React.useState(false);
   const [color, setColor] = React.useState("#6d6d6d");
-  const [devices, setDevices] = React.useState(() => ["00", "02", "05"]);
+  const [devices, setDevices] = React.useState(() => []);
   const [chipData, setChipData] = React.useState([]);
   const [checknum, setChecknum] = React.useState([]);
   const [phone, setPhone] = React.useState("");
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState("請輸入您的手機號碼");
+  const navigate = useNavigate();
+
+  
 
   const handleClose = () => {
     setDialogOpen(false);
   };
+
+
 
   const handleDevices = (event, newDevices) => {
     if (newDevices.length <= 3) {
@@ -95,10 +103,10 @@ function App() {
     if (checknum.length <= 0) {
       setDialogOpen(true);
     }
-    if (checkBoxCheck === false) {
+    if (checkBoxCheck === false ) {
       setColor("#B00020");
     }
-    if (phone === "") {
+    if (phone === "" || phone.length !== 10) {
       setError(true);
       setHelperText("非暢遊會員,無法登記鎖櫃!");
     }
@@ -113,9 +121,29 @@ function App() {
       setColor("#6d6d6d");
     }
   };
+const handleClick = (event) => {
+  if (
+    checkBoxCheck === true &&
+    phone !== "" &&
+    phone.length === 10 &&
+    !isNaN(phone)
+  ) {
+    navigate("/Complete");
 
-  const handleClickOpen = () => {};
+    event.preventDefault();
+    const json = JSON.stringify({ phone: phone, locker_id: devices });
 
+    console.log("phone:" + phone + "number:" + devices);
+    axios
+      .post("api/Registion", JSON.parse(json))
+      .then((response) => {
+        console.log(JSON.stringify(response));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+};
   return (
     <div>
       <div className="Table">
@@ -679,7 +707,7 @@ function App() {
               <Box
                 component="form"
                 sx={{
-                  "& > :not(style)": { m: 1, width: "38ch" },
+                  "& > :not(style)": {width: "380px" },
                 }}
                 noValidate
                 autoComplete="off"
@@ -691,7 +719,7 @@ function App() {
                   helperText={helperText}
                   value={phone}
                   onChange={(e) => {
-                    setPhone(e.target.value);
+                    setPhone(e.target.value.replace(/[^\d.]/g, ""));
                   }}
                 />
               </Box>
@@ -758,8 +786,7 @@ function App() {
                     variant="contained"
                     type="submit"
                     value="submit"
-                    style={{ width: 350, height: 40 }}
-                    onClick={handleClickOpen}
+                    onClick={handleClick}
                   >
                     <p>送出</p>
                   </Button>
