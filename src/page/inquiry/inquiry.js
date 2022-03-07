@@ -14,35 +14,30 @@ function App() {
 
   const handleClick = (event) => {
     event.preventDefault();
+    const json = JSON.stringify({ phone: phone });
 
-    if (phone !== "" && phone.length === 10 && !isNaN(phone)) {
-      navigate("/Noyetopen");
-    }
-    if (phone === "" || phone.length !== 10) {
-      setError(true);
-      setHelperText("非暢遊會員,無法登記鎖櫃!");
-    }
-    // const json = JSON.stringify({ phone: phone });
-
-    // //console.log("phone:" + phone +"number:" + devices);
-    // axios
-    //   .post("api/Locker", JSON.parse(json))
-    //   .then((response) => {
-    //     if (response.data === "you haven't got the locker yet") {
-    //       navigate("/Noyetopen");
-    //     } else {
-    //       if (response.data === "You have not registered yet") {
-    //         setError(true);
-    //         setHelperText("尚未登記抽籤");
-    //       } else {
-    //         setError(true);
-    //         setHelperText("非暢遊會員,無法登記鎖櫃!");
-    //       }
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    //console.log("phone:" + phone +"number:" + devices);
+    axios
+      .post("api/Locker", JSON.parse(json))
+      .then((response) => {
+        if (
+          response.data ===
+          "目前鎖櫃尚在登記中，<br>請在 12/12 AM 10 回來本系統查看中籤資訊"
+        ) {
+          navigate("/Noyetopen");
+        } else {
+          if (response.data === "您尚未登記過鎖櫃") {
+            setError(true);
+            setHelperText("您尚未登記過鎖櫃");
+          } else {
+            setError(true);
+            setHelperText("非暢遊會員,無法登記鎖櫃!");
+          }
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div id="SEARCH">

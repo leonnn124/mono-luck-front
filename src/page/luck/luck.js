@@ -124,8 +124,44 @@ function App() {
       !isNaN(phone)
     ) {
       event.preventDefault();
+      let priority = "";
+      let cnt = 1;
+      devices.forEach(function (i) {
+        if (cnt++ == 1) {
+          priority += i;
+        } else {
+          priority += "," + i;
+        }
+      });
+      console.log(priority);
+      // for (let i = 0; i < priority.length; i++) {
+      //   if (devices[i + 1] == "") {
+      //     priority += devices[i];
+      //   } else {
+      //     priority += devices[i] + ",";
+      //   }
+      // }
+      const json = JSON.stringify({ phone: phone, priority: priority });
 
-      navigate("/Complete");
+      //console.log("phone:" + phone +"number:" + devices);
+      axios
+        .post("api/Registrations", JSON.parse(json))
+        .then((response) => {
+          if (response.data === "success") {
+            navigate("/Complete");
+          } else {
+            if (response.data === "非暢遊會員,無法登記鎖櫃!") {
+              setError(true);
+              setHelperText("非暢遊會員,無法登記鎖櫃!");
+            } else {
+              setError(true);
+              setHelperText("您已登記過鎖櫃");
+            }
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
   return (

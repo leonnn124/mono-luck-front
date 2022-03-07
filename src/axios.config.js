@@ -2,9 +2,9 @@ import Axios from "axios";
 
 const axios = (baseURL) => {
   const instance = Axios.create({
-    baseURL: baseURL || "http://localhost:8000", //back-end
+    baseURL: baseURL || "https://immense-woodland-77775.herokuapp.com/", //back-end
     headers: { "Content-Type": "application/json" },
-    timeout: 1000,
+    timeout: 8000,
   });
 
   return instance;
