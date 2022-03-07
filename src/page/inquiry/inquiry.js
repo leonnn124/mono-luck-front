@@ -46,7 +46,7 @@ function App() {
           <Box
             component="form"
             sx={{
-              "& > :not(style)": { width: " 380px " },
+              "& > :not(style)": {},
             }}
             noValidate
             autoComplete="off"

@@ -40,3 +40,7 @@
 .titletext {
   margin: 15px 0;
 }
+.link > div:hover {
+  background: #e1f4fd;
+  color: #02a2ee;
+}

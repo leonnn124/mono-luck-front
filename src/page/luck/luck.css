@@ -6,6 +6,7 @@
   margin: 30px 0 30px 0;
   text-align: center;
   width: 100%;
+  max-width: 100%;
 }
 
 .directions::after {
@@ -16,6 +17,7 @@
   height: 1px;
   margin-top: 15px;
   left: calc(50% - 190px);
+  max-width: 100%;
 }
 
 .directions p {
@@ -25,9 +27,10 @@
 }
 
 .choosenum .num {
-  width: 350px;
-  height: 50px;
+  max-width: 350px;
+  height: 90px;
   margin: auto;
+  flex-wrap: wrap;
 }
 
 .choosenum {
@@ -40,26 +43,33 @@
   color: #6d6d6d;
   text-align: left;
   font-weight: bold;
+  max-width: 100%;
 }
 
-.choosenum .num::after {
+/* .choosenum .num::after {
   content: "";
   position: absolute;
   background-color: #cfcfcf;
-  width: 380px;
   height: 1px;
   margin-top: 50px;
   left: calc(50% - 190px);
 }
+  max-width: 350px;
+  margin: 90px auto 0 auto;
+} */
 
-.textfield {
-  text-align: center;
-  margin: 50px 0 0 0;
+.textfield,
+.textfield form,
+.textfield > * > div {
+  margin: 24px auto 0 auto;
+  width: 380px;
+  max-width: 100%;
 }
 
 .agree,
 .disagree {
   text-align: left;
+  max-width: 100%;
 }
 
 .agreeItem,
@@ -69,6 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  max-width: 100%;
 }
 
 .agreeItem p {
@@ -91,11 +102,18 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 56px;
+  max-width: 100%;
 }
 
 .sendBtn {
   width: 380px;
+  max-width: 100%;
   margin: auto;
+}
+
+.sendBtn button {
+  width: 380px;
+  max-width: 100%;
 }
 
 .sendBtn p {
@@ -103,15 +121,18 @@
 }
 
 .toggleBtn {
+  overflow: auto;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
+  max-width: 100%;
 }
 
 .toggleBtn .Btn {
   margin: 0 auto;
   width: 350px;
   padding: 8px;
+  max-width: 100%;
 }
 
 .Table img {
@@ -133,14 +154,23 @@
 }
 
 .chip .num {
-  width: 350px;
   margin: auto;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .num {
   font-weight: bold;
+}
+
+.line {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.content {
+  margin: 0 10px;
 }
 
 .dialog {
