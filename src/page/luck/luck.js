@@ -2,6 +2,7 @@ import React from "react";
 import "./luck.css";
 import axios from "../../axios.config";
 import { useNavigate } from "react-router-dom";
+import Divider from '@mui/material/Divider';
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import {
   Dialog,
@@ -153,6 +154,7 @@ const handleClick = (event) => {
           </div>
 
           <div className="toggleBtn">
+            <div>
             <div className="Btn">
               <ToggleButtonGroup value={devices} onChange={handleDevices}>
                 <ToggleButton
@@ -657,6 +659,7 @@ const handleClick = (event) => {
                 </ToggleButton>
               </ToggleButtonGroup>
             </div>
+            </div>
           </div>
 
           <div className="chip">
@@ -701,13 +704,15 @@ const handleClick = (event) => {
               </div>
             </div>
           </div>
-
+          <div className="line">
+          <Divider />
+          </div>
           <form novalidate autoComplete="off" onSubmit={handleSubmit}>
             <div className="textfield">
               <Box
                 component="form"
                 sx={{
-                  "& > :not(style)": {width: "380px" },
+                  "& > :not(style)": { },
                 }}
                 noValidate
                 autoComplete="off"
@@ -733,8 +738,10 @@ const handleClick = (event) => {
                 aria-describedby="alert-dialog-description"
               >
                 <DialogTitle id="alert-dialog-title">
+                  <div className="dialog">
                   <img src="https://imgur.com/mLzAkGV.png" alt="warning"></img>
                   <p>{"您尚未選擇鎖櫃"}</p>
+                  </div>
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-description">
@@ -748,6 +755,7 @@ const handleClick = (event) => {
                 </DialogActions>
               </Dialog>
             </div>
+            
 
             <div className="agree">
               <div className="agreeItem">

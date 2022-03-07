@@ -36,7 +36,7 @@ function App() {
           <Box
             component="form"
             sx={{
-              "& > :not(style)":{ width:" 380px "},
+              "& > :not(style)":{},
             }}
             noValidate
             autoComplete="off"
@@ -54,7 +54,7 @@ function App() {
           </Box>
           <div class="Done">
             <Stack direction="row" spacing={2}>
-              <Button variant="contained" style={{ width: 380, height: 40 }} onClick={handleClick}>
+              <Button variant="contained" onClick={handleClick}>
                 完成
               </Button>
             </Stack>

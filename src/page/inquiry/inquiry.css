@@ -1,12 +1,20 @@
 .Inquiry {
+  margin: 0 10px;
   text-align: center;
-  width: 350px;
-  margin: 0 auto;
 }
 
 .searchArea {
   margin: 50px 0 0 0;
+
 }
-.Done{
-  width: 380px;
+.searchArea >*> div{
+  width: 100%;
+  max-width: 380px;
+}
+.Done button{
+  width: 100%;
+  max-width: 380px;
+}
+.Done > div{
+  margin: 0 auto;
 }

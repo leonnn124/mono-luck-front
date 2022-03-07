@@ -1,6 +1,7 @@
 .directions {
   margin: 30px 0;
   text-align: center;
+  max-width: 100%;
 }
 
 .directions::after {
@@ -9,24 +10,28 @@
   background-color: #cfcfcf;
   width: 350px;
   height: 1px;
-  margin-top: 5px;
+  margin-top: 15px;
   left: calc(50% - 175px);
+  max-width: 100%;
 }
 
 .directions p {
   font-size: 14px;
   color: #6d6d6d;
+  margin: 0 20px;
 }
 
 .choosenum .num {
-  width: 350px;
+  max-width: 350px;
   height: 90px;
   margin: auto;
+  flex-wrap: wrap;
 }
 
 .choosenum {
   margin: 20px;
   text-align: center;
+  
 }
 
 .choosenum p {
@@ -34,26 +39,29 @@
   color: #6d6d6d;
   text-align: left;
   font-weight: bold;
+  max-width: 100%;
 }
 
-.choosenum .num::after {
+/* .choosenum .num::after {
   content: "";
   position: absolute;
   background-color: #cfcfcf;
-  width: 350px;
+  max-width: 350px;
   height: 1px;
-  margin-top: 90px;
-  left: calc(50% - 175px);
-}
+  margin: 90px auto 0 auto;
+} */
 
-.textfield {
+.textfield ,.textfield form ,.textfield > * > div{
   text-align: center;
-  margin: 24px 0 0 0;
+  margin: 24px auto 0 auto;
+  width: 380px;
+  max-width: 100%;
 }
 
 .agree,
 .disagree {
   text-align: left;
+  max-width: 100%;
 }
 
 .agreeItem,
@@ -63,11 +71,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  max-width: 100%;
 }
 
 .agreeItem p {
   font-size: 14px;
   color: #6d6d6d;
+
 }
 
 .agreeItem a,
@@ -84,15 +94,18 @@
 .btn {
   text-align: center;
   margin-top: 20px;
+  max-width: 100%;
 }
 
 .sendBtn {
   width: 380px;
+  max-width: 100%;
   margin: auto;
 }
 
 .sendBtn button{
   width: 380px;
+  max-width: 100%;
 }
 
 .sendBtn p {
@@ -100,14 +113,17 @@
 }
 
 .toggleBtn {
+  overflow: auto;
   text-align: center;
   margin-top: 30px;
+  max-width: 100%;
 }
 
 .toggleBtn .Btn {
   margin: 0 auto;
   width: 350px;
   padding: 8px;
+  max-width: 100%;
 }
 
 .Table img {
@@ -129,12 +145,25 @@
 }
 
 .chip .num {
-  width: 350px;
   margin: auto;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .num {
   font-weight: bold;
+}
+.line{
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.content{
+  margin: 0 10px;
+}
+
+.dialog{
+  text-align: center;
+  width: 100%;
 }
