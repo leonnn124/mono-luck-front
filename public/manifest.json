@@ -1,11 +1,11 @@
 {
     "theme_color" : "#1976d2",
-    "background_color" : "#ffffff",
+    "background_color" : "#1976d2",
     "display" : "standalone",
     "scope": "/",
     "start_url": ".",
-    "name" : "mono_luck",
-    "short_name" : "mono_luck",
+    "name" : "MonoLuck",
+    "short_name" : "MonoLuck",
     "description" : "Monospacelocker",
     "icons": [
     {

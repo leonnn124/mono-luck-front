@@ -1,12 +1,16 @@
+#SEARCH {
+  background-color: #fff;
+}
+
 .Inquiry {
   text-align: center;
-  width: 350px;
+  width: 380px;
   margin: 0 auto;
 }
 
 .searchArea {
-  margin: 50px 0 0 0;
+  padding-top: 100px;
 }
 .Done {
-  width: 380px;
+  margin-top: 30px;
 }

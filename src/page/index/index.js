@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 function Homepage() {
   return (
-    <div>
+    <div id="HOME">
       <div className="Homepage">
         <div className="Logo">
           <img src="https://imgur.com/c7OVLhS.png" alt="mono"></img>

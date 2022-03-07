@@ -1,21 +1,28 @@
+#LUCK {
+  background-color: #fff;
+}
+
 .directions {
-  margin: 30px 0;
+  margin: 30px 0 30px 0;
   text-align: center;
+  width: 100%;
+  padding-top: 55px;
 }
 
 .directions::after {
   content: "";
   position: absolute;
   background-color: #cfcfcf;
-  width: 350px;
+  width: 380px;
   height: 1px;
   margin-top: 15px;
-  left: calc(50% - 175px);
+  left: calc(50% - 190px);
 }
 
 .directions p {
   font-size: 14px;
   color: #6d6d6d;
+  margin: 0 20px;
 }
 
 .choosenum .num {
@@ -25,7 +32,7 @@
 }
 
 .choosenum {
-  margin: 20px;
+  margin: 20px 20px 50px 20px;
   text-align: center;
 }
 
@@ -40,10 +47,10 @@
   content: "";
   position: absolute;
   background-color: #cfcfcf;
-  width: 350px;
+  width: 380px;
   height: 1px;
-  margin-top: 100px;
-  left: calc(50% - 175px);
+  margin-top: 50px;
+  left: calc(50% - 190px);
 }
 
 .textfield {
@@ -58,8 +65,8 @@
 
 .agreeItem,
 .disagreeItem {
-  margin: auto;
-  width: 340px;
+  margin: 15px auto;
+  width: 380px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -84,10 +91,11 @@
 .btn {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 56px;
 }
 
 .sendBtn {
-  width: 350px;
+  width: 380px;
   margin: auto;
 }
 
@@ -98,6 +106,7 @@
 .toggleBtn {
   text-align: center;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .toggleBtn .Btn {

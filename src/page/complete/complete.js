@@ -10,7 +10,7 @@ function App() {
     navigate("/");
   };
   return (
-    <div>
+    <div id="OK">
       <div className="Complete">
         <div className="completeArea">
           <img

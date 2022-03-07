@@ -14,38 +14,38 @@ function App() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    const json = JSON.stringify({ phone: phone });
 
-    //console.log("phone:" + phone +"number:" + devices);
-    axios
-      .post("api/Locker", JSON.parse(json))
-      .then((response) => {
-        if (response.data === "you haven't got the locker yet") {
-          navigate("/Noyetopen");
-        } else {
-          if (response.data === "You have not registered yet") {
-            setError(true);
-            setHelperText("您尚未登記過鎖櫃");
-          } else {
-            setError(true);
-            setHelperText("非暢遊會員,無法登記鎖櫃!");
-          }
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // if (phone !== "" && phone.length === 10 && !isNaN(phone)) {
-    //   navigate("/Noyetopen");
-    // }
-    // if (phone === "" || phone.length !== 10) {
-    //   setError(true);
-    //   setHelperText("非暢遊會員,無法登記鎖櫃!");
-    // }
+    if (phone !== "" && phone.length === 10 && !isNaN(phone)) {
+      navigate("/Noyetopen");
+    }
+    if (phone === "" || phone.length !== 10) {
+      setError(true);
+      setHelperText("非暢遊會員,無法登記鎖櫃!");
+    }
+    // const json = JSON.stringify({ phone: phone });
+
+    // //console.log("phone:" + phone +"number:" + devices);
+    // axios
+    //   .post("api/Locker", JSON.parse(json))
+    //   .then((response) => {
+    //     if (response.data === "you haven't got the locker yet") {
+    //       navigate("/Noyetopen");
+    //     } else {
+    //       if (response.data === "You have not registered yet") {
+    //         setError(true);
+    //         setHelperText("尚未登記抽籤");
+    //       } else {
+    //         setError(true);
+    //         setHelperText("非暢遊會員,無法登記鎖櫃!");
+    //       }
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
-
   return (
-    <div>
+    <div id="SEARCH">
       <div className="Inquiry">
         <div className="searchArea">
           <Box

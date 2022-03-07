@@ -124,33 +124,18 @@ function App() {
       !isNaN(phone)
     ) {
       event.preventDefault();
-      const json = JSON.stringify({ phone: phone, locker_id: devices });
 
-      //console.log("phone:" + phone +"number:" + devices);
-      axios
-        .post("api/Registion", JSON.parse(json))
-        .then((response) => {
-          if (response.data === "success") {
-            navigate("/Complete");
-          } else {
-            if (response.data === "no find phone.") {
-              setHelperText("非暢遊會員,無法登記鎖櫃!");
-            } else {
-              setHelperText("您已登記過鎖櫃");
-            }
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      navigate("/Complete");
     }
   };
   return (
-    <div>
+    <div id="LUCK">
       <div className="Table">
         <div className="content">
           <div className="directions">
-            <p>請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項</p>
+            <p>
+              請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項，選擇的鎖櫃順序為鎖櫃抽選志願序。
+            </p>
           </div>
 
           <div className="toggleBtn">
@@ -792,7 +777,7 @@ function App() {
                     variant="contained"
                     type="submit"
                     value="submit"
-                    style={{ width: 350, height: 40 }}
+                    style={{ width: 380, height: 40 }}
                     onClick={handleClick}
                   >
                     <p>送出</p>

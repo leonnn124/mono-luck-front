@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -35,6 +34,10 @@ export default function TemporaryDrawer() {
 
   const [drawerText, setDrawerText] = React.useState("首頁");
 
+  const [btncolor1, setBtnColor1] = React.useState("#000");
+  const [btncolor2, setBtnColor2] = React.useState("#000");
+  const [btnbg1, setBtnBg1] = React.useState("#FFF");
+  const [btnbg2, setBtnBg2] = React.useState("#FFF");
   const titleMap = [
     { path: "/", title: "首頁" },
     { path: "/Luck", title: "鎖櫃登記" },
@@ -49,8 +52,37 @@ export default function TemporaryDrawer() {
     if (curTitle && curTitle.title) {
       setDrawerText(curTitle.title);
       document.title = curTitle.title;
+      if (curTitle.title === "鎖櫃登記") {
+        setBtnBg1("#E1F4FD");
+        setBtnBg2("#FFF");
+        setBtnColor1("#02A2EE");
+        setBtnColor2("#000");
+      } else if (curTitle.title === "查詢登記") {
+        setBtnBg2("#E1F4FD");
+        setBtnBg1("#FFF");
+        setBtnColor2("#02A2EE");
+        setBtnColor1("#000");
+      } else {
+        setBtnBg2("#FFF");
+        setBtnBg1("#FFF");
+        setBtnColor2("#000");
+        setBtnColor1("#000");
+      }
     }
   }, [curLoc]);
+
+  const changeColor1 = () => {
+    setBtnBg1("#E1F4FD");
+    setBtnBg2("#FFF");
+    setBtnColor1("#02A2EE");
+    setBtnColor2("#000");
+  };
+  const changeColor2 = () => {
+    setBtnBg2("#E1F4FD");
+    setBtnBg1("#FFF");
+    setBtnColor2("#02A2EE");
+    setBtnColor1("#000");
+  };
 
   const list = (anchor) => (
     <Box
@@ -71,7 +103,12 @@ export default function TemporaryDrawer() {
         </div>
 
         <Link to="/Luck" className="link">
-          <ListItem button key={"鎖櫃登記"}>
+          <ListItem
+            button
+            key={"鎖櫃登記"}
+            style={{ background: btnbg1, color: btncolor1 }}
+            onClick={changeColor1}
+          >
             <ListItemIcon>
               <EditIcon />
             </ListItemIcon>
@@ -80,7 +117,12 @@ export default function TemporaryDrawer() {
         </Link>
 
         <Link to="/Inquiry" className="link">
-          <ListItem button key={"查詢登記"}>
+          <ListItem
+            button
+            key={"查詢登記"}
+            style={{ background: btnbg2, color: btncolor2 }}
+            onClick={changeColor2}
+          >
             <ListItemIcon>
               <SearchIcon />
             </ListItemIcon>
@@ -94,7 +136,7 @@ export default function TemporaryDrawer() {
   return (
     <div className="appbar">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar variant="dense" style={{ padding: "0" }}>
             <Button
               onClick={toggleDrawer("left", true)}
@@ -109,9 +151,11 @@ export default function TemporaryDrawer() {
             >
               {list("left")}
             </Drawer>
-            <Typography variant="h6" color="inherit" component="div">
-              {drawerText}
-            </Typography>
+            <div className="titletext">
+              <Typography variant="h6" color="inherit" component="div">
+                {drawerText}
+              </Typography>
+            </div>
           </Toolbar>
         </AppBar>
       </Box>

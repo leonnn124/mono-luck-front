@@ -1,15 +1,25 @@
+#HOME {
+  background-color: #fff;
+}
+
 .Homepage {
   text-align: center;
   margin: 0 auto;
   width: 350px;
+  max-width: 100vw;
+  background-color: #fff;
 }
 
 .Logo {
-  margin: 100px 0 0 0;
+  margin: 0 auto;
+  max-width: 100vw;
+  height: 100%;
+  padding-top: 150px;
 }
 
 .Title1 {
   font-size: 34px;
+  max-width: 100vw;
 }
 
 .Title2 {
@@ -27,4 +37,8 @@ p {
 .Homepage a {
   text-decoration: none;
   color: #000;
+}
+
+button {
+  max-width: 100vw;
 }

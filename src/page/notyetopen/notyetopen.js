@@ -10,14 +10,10 @@ function App() {
     navigate("/");
   };
   return (
-    <div>
+    <div id="OPEN">
       <div className="Notyetopen">
         <div className="notyetopenText">
-          <p>
-            目前鎖櫃尚在登記中，
-            <br />
-            請在12/12 AM 10 回來本系統查看中籤資訊
-          </p>
+          <p>置物櫃尚在登記，請於 03/14 中午 12:00 至本系統查詢抽籤結果。</p>
           <div class="button">
             <Stack direction="row" spacing={2}>
               <Button
