@@ -96,11 +96,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (checknum.length <= 0) {
-      setDialogOpen(true);
-    }
     if (checkBoxCheck === false) {
-      setColor("#B00020");
+      setColor("#02A2EE");
     }
     if (phone === "" || phone.length !== 10) {
       setError(true);
@@ -112,12 +109,14 @@ function App() {
 
   const checkboxChange = () => {
     setCheckBoxCheck(!checkBoxCheck);
-    console.log(checkBoxCheck);
     if (checkBoxCheck === false) {
       setColor("#6d6d6d");
     }
   };
   const handleClick = (event) => {
+    if (checknum.length === 0) {
+      setDialogOpen(true);
+    }
     if (
       checkBoxCheck === true &&
       phone !== "" &&
@@ -765,12 +764,12 @@ function App() {
                       src="https://imgur.com/mLzAkGV.png"
                       alt="warning"
                     ></img>
-                    <p>{"您尚未選擇鎖櫃"}</p>
+                    <p>{"您尚未選取置物櫃"}</p>
                   </div>
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-description">
-                    請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+                    請依順序點選置物櫃編號，最多可選取三個置物櫃位置，選取的鎖櫃順序為置物櫃抽選志願序。
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -818,7 +817,7 @@ function App() {
                     variant="contained"
                     type="submit"
                     value="submit"
-                    style={{ width: 380, height: 40 }}
+                    style={{ width: 380, height: 40, background: "#02A2EE" }}
                     onClick={handleClick}
                   >
                     <p>送出</p>
