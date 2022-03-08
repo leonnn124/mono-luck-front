@@ -782,7 +782,7 @@ function App() {
 
             <div className="agree">
               <div className="agreeItem">
-                <div>
+                <div className="itemLeft">
                   <FormControlLabel
                     control={
                       <Checkbox

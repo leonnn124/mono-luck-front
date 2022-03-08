@@ -14,21 +14,18 @@ import {
 
 function Homepage() {
   const [Dialogopen, setDialogOpen] = React.useState(false);
-  const [LinkTo, setLinkTo] = React.useState("");
+  const [LinkTo, setLinkTo] = React.useState("/Luck");
   const handleClose = () => {
     setDialogOpen(false);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     let today = new Date();
-    let endDate = "2022-03-09 00:22:30";
+    let endDate = "2022-03-13 23:59:59";
 
     if (Date.parse(today).valueOf() > Date.parse(endDate).valueOf()) {
-      console.log(endDate);
+      e.preventDefault();
       setDialogOpen(true);
-      setLinkTo("/");
-    } else {
-      setLinkTo("/Luck");
     }
   };
 
@@ -54,7 +51,9 @@ function Homepage() {
                 <Button
                   variant="contained"
                   className="button_r"
-                  onClick={handleClick}
+                  onClick={(e) => {
+                    handleClick(e);
+                  }}
                   style={{ background: "#02A2EE" }}
                 >
                   <EditIcon />
