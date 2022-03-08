@@ -97,7 +97,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (checkBoxCheck === false) {
-      setColor("#02A2EE");
+      setColor("#B00020");
     }
     if (phone === "" || phone.length !== 10) {
       setError(true);
@@ -817,7 +817,12 @@ function App() {
                     variant="contained"
                     type="submit"
                     value="submit"
-                    style={{ width: 380, height: 40, background: "#02A2EE" }}
+                    style={{
+                      width: 380,
+                      height: 40,
+                      background: "#02A2EE",
+                      boxShadow: "none",
+                    }}
                     onClick={handleClick}
                   >
                     <p>送出</p>
