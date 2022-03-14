@@ -15,8 +15,21 @@ import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
 import Avatar from "@mui/material/Avatar";
 import { Link, useLocation } from "react-router-dom";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 export default function TemporaryDrawer() {
+  const [Dialogopen, setDialogOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setDialogOpen(false);
+  };
+
   const [state, setState] = React.useState({
     left: false,
     bottom: false,
@@ -78,6 +91,7 @@ export default function TemporaryDrawer() {
     setBtnBg2("#FFF");
     setBtnColor1("#02A2EE");
     setBtnColor2("#000");
+    setDialogOpen(true);
   };
   const changeColor2 = () => {
     setBtnBg2("#E1F4FD");
@@ -104,7 +118,7 @@ export default function TemporaryDrawer() {
           <p className="SidebarContent">Monosparta</p>
         </div>
 
-        <Link to="/Luck" className="link">
+        <Link to="/" className="link">
           <ListItem
             button
             key={"置物櫃登記"}
@@ -137,6 +151,29 @@ export default function TemporaryDrawer() {
 
   return (
     <div className="appbar">
+      <Dialog
+        open={Dialogopen}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          <div className="dialog">
+            <img src="https://imgur.com/mLzAkGV.png" alt="warning"></img>
+            <p>{"登記已截止"}</p>
+          </div>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            置物櫃登記時間已截止，請於03/14中午 12:00至本系統查詢抽籤結果。
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            確認
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           position="static"
