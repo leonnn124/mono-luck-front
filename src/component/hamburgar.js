@@ -14,7 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
 import Avatar from "@mui/material/Avatar";
-import { Link, useLocation, useEffect } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -45,6 +45,7 @@ export default function TemporaryDrawer() {
     { path: "/Complete", title: "登記成功" },
     { path: "/Inquiry", title: "查詢登記" },
     { path: "/Noyetopen", title: "查詢登記" },
+    { path: "/Result", title: "查詢登記" },
   ];
 
   let curLoc = useLocation();

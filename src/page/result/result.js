@@ -1,11 +1,12 @@
 import React from "react";
 import "./result.css";
 import { Button, Stack } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function App() {
   const navigate = useNavigate();
-
+  let location = useLocation();
+  let Locker = location.state;
   const handleClick = () => {
     navigate("/");
   };
@@ -13,7 +14,7 @@ function App() {
     <div id="OPEN">
       <div className="Result">
         <div className="resultText">
-          <p>您抽中的置物櫃為 - </p>
+          <p>您抽中的置物櫃為 - {Locker}</p>
           <p>請向值班人員索取使用登記表簽名 </p>
         </div>
         <div className="resultbtn">

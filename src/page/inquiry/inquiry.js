@@ -70,12 +70,16 @@ function App() {
           if (response.data == "0") {
             navigate("/Noyetopen");
           } else {
-            if (response.data == "2") {
-              setError(true);
-              setHelperText("非暢遊會員,無法登記鎖櫃!");
-            } else {
+            if(response.data == "1"){
               setError(true);
               setHelperText("您尚未登記過鎖櫃");
+            } else{
+              if (response.data == "2") {
+                setError(true);
+                setHelperText("非暢遊會員,無法登記鎖櫃!");
+              } else {
+                navigate("/Result",{state : response.data});
+              }
             }
           }
         })
